@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
         sanPhamApi.getAllSanPham().enqueue(new Callback<List<SanPham>>() {
             @Override
             public void onResponse(Call<List<SanPham>> call, Response<List<SanPham>> response) {
-                Toast.makeText(MainActivity.this, "Call api success", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "Load sản phẩm thành công", Toast.LENGTH_SHORT).show();
                 sanPhamList =  response.body();
                 sanPhamAdapter.setSanPhams(sanPhamList);
                 recyclerViewManHinhChinh.setLayoutManager(layoutManager);
@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
             }
             @Override
             public void onFailure(Call<List<SanPham>> call, Throwable throwable) {
-                Toast.makeText(MainActivity.this,"Call api error " + throwable.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this,"Lỗi kết nối tới server: " + throwable.getMessage(), Toast.LENGTH_SHORT).show();
                 Log.e("error", throwable.getMessage());
             }
         });
